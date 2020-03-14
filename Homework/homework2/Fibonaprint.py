@@ -13,7 +13,7 @@ def Fibonacci(n):
     a1=0
     a2=1
     a=1
-    print(a1,end=' ')
+    print(a2,end=' ')
     if(n==0):
         return 
     while a<=n:
