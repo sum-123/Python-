@@ -14,7 +14,7 @@ word="I'm a boby, I'm a girl. When it is true, it is ture. thit are cats, the re
 word=word.replace(',','').replace('.','')
 word=word.split()
 dic={}
-#print(word)
+print(word)
 for k in word:
     if k in dic:
         dic[k]+=1
