@@ -76,7 +76,7 @@
 #     print('*'*10)
 # print(soup.prettify())
 # try:
-#     r=requests.get('https://www.9x600.com')
+#     r=requests.get('')
 #     r.raise_for_status()
 #     r.encoding=r.apparent_encoding
 #     demo=r.text
@@ -148,32 +148,33 @@ import bs4
 #     # print(uinfo)
 #     printUnivList(uinfo, 300) # 20 univs
 # main()
-import requests
-from bs4 import BeautifulSoup
-from urllib.parse import quote
-import re
-# import wget
-import os
+# import requests
+# from bs4 import BeautifulSoup
+# from urllib.parse import quote
+# import re
+# # import wget
+# import os
 
-url = 'http://www.listeningexpress.com/studioclassroom/ad/'
-mp3_urls = []
+# url = 'http://www.listeningexpress.com/studioclassroom/ad/'
+# mp3_urls = []
 
-pattern = r'sc\-ad[\s\S]{1,100}\.mp3'
+# pattern = r'sc\-ad[\s\S]{1,100}\.mp3'
 
-home_page = requests.get( url )
-page_text = home_page.text
-soup = BeautifulSoup( page_text, 'html.parser' )
+# home_page = requests.get( url )
+# page_text = home_page.text
+# soup = BeautifulSoup( page_text, 'html.parser' )
 
-# print( page_text )
-atags = soup.find_all( 'a' )
-for atag in atags:
-    if '.mp3' in atag.string:
-        mp3_urls.append( url + quote( re.search( pattern, atag.get( 'href' ) ).group(0) ) )
+# # print( page_text )
+# atags = soup.find_all( 'a' )
+# print(atags)
+# for atag in atags:
+#     if '.mp3' in atag.string:
+#         mp3_urls.append( url + quote( re.search( pattern, atag.get( 'href' ) ).group(0) ) )
 
 # print( mp3_urls )
-for mp3 in mp3_urls:
-    # wget.download( mp3, mp3.split('/')[-1] )
-    os.system( 'wget ' + mp3 + ' ' + mp3.split('/')[-1] )
+# # for mp3 in mp3_urls:
+# #     # wget.download( mp3, mp3.split('/')[-1] )
+# #     os.system( 'wget ' + mp3 + ' ' + mp3.split('/')[-1] )
 
 
 

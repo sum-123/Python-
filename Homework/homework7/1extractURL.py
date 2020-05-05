@@ -24,7 +24,7 @@ def func(path,path2):
 
 
 if __name__ == '__main__':
-	path=r'/Users/zhaojiaming/Downloads/webspiderUrl.txt'
+	path=r'webspiderUrl.txt'
 	path2=r'URL.txt'
 	func(path,path2)
 
