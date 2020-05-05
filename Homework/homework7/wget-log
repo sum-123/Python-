@@ -1,0 +1,17 @@
+--09:28:44--  http://www.listeningexpress.com/studioclassroom/ad/sc-ad%202020-04-25%20The%20Benefits%20of%20Reading.mp3
+           => `sc-ad 2020-04-25 The Benefits of Reading.mp3'
+Resolving www.listeningexpress.com... 61.155.41.53
+Connecting to www.listeningexpress.com|61.155.41.53|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 6,582,707 (6.3M) [audio/mpeg]
+
+
+
+09:28:45 (7.34 MB/s) - `sc-ad 2020-04-25 The Benefits of Reading.mp3' saved [6582707/6582707]
+
+--09:28:45--  http://sc-ad%202020-04-25%20the%20benefits%20of%20reading.mp3/
+           => `index.html'
+Resolving sc-ad 2020-04-25 the benefits of reading.mp3... failed: nodename nor servname provided, or not known.
+
+FINISHED --09:29:15--
+Downloaded: 6,582,707 bytes in 1 files
