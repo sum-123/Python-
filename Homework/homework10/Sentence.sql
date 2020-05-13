@@ -1,0 +1,10 @@
+SELECT * FROM students WHERE gender = '男';
+SELECT * FROM students WHERE id < 4 OR is_delete = 0;
+SELECT * FROM students WHERE NAME LIKE '黄_';
+SELECT * FROM students WHERE id in ( 1, 3, 8 );
+SELECT * FROM students WHERE id BETWEEN 3 AND 8;
+SELECT * FROM students WHERE gender = '男' AND is_delete = 0 ORDER BY age DESC;
+SELECT COUNT(*) AS total FROM students WHERE gender='女';
+SELECT AVG(age) AS aver_age FROM students;
+SELECT gender AS '性别', AVG(age) AS '平均年龄' FROM students GROUP BY gender;
+SELECT gender, GROUP_CONCAT(name) FROM students GROUP BY gender;
