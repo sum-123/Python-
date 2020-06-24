@@ -7,6 +7,7 @@ from sqlalchemy import Column, Integer, String
 from config import DB_URL
 from sqlalchemy.orm import sessionmaker
 import sys,time
+from data_clean import data_clean
 Base = declarative_base()
 
 
@@ -51,10 +52,12 @@ header ={
         };
 
 def get_info(url):
+    
 
     html = urlopen(url).read().decode('GBK')
+
     soup = BeautifulSoup(html,"html.parser")
-    # 获取职位信息
+            # 获取职位信息
     titles = soup.select("p[class='t1'] a")
     # 获取工作地点
     di = soup.select("span[class='t3']")
@@ -64,7 +67,8 @@ def get_info(url):
     salaries = soup.select("span[class='t4']") # CSS 选择器
     # 获取发布时间
     time = soup.select("span[class='t5']")
-
+   
+        
 
     for i in range(len(titles)):
         # with open("1.txt","a") as f:
@@ -74,11 +78,15 @@ def get_info(url):
         #     f.write("\n")
         # print("{:30}{}{}".format(titles[i].get('title'),salaries[i+1].get_text(),di[i+1].get_text()),company[i+1].get_text())
         if ("Python"or "python") in titles[i].get('title') and "开发工程师" in titles[i].get('title'):
-
+            m =data_clean(salaries[i+1].get_text())
             session = creat_session()
-            obj = data_table(POSITION=titles[i].get('title'), COMPANY=company[i+1].get_text(),ADDRESS=di[i+1].get_text(),SALARY=salaries[i+1].get_text(),DATE=time[i+1].get_text())  # 生成数据对象
-            session.add(obj)  # 把要创建的数据对象添加到session里
-            session.commit()
+            try:
+                
+                obj = data_table(POSITION=titles[i].get('title'), COMPANY=company[i+1].get_text(),ADDRESS=di[i+1].get_text(),SALARY=m,DATE=time[i+1].get_text())  # 生成数据对象
+                session.add(obj)  # 把要创建的数据对象添加到session里
+                session.commit()
+            except:
+                continue
             # orm_insert(titles[i].get('title'),company[i+1].get_text(),di[i+1].get_text(),salaries[i+1].get_text(),time[i+1].get_text())
 Count = 0
 def option1():
@@ -104,5 +112,4 @@ def multi_thread():
     t1.start()
     t2.start()
     print("正在爬取......")
-
 multi_thread()

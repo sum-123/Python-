@@ -6,5 +6,5 @@ DATABASE = 'test'
 USER_NAME = 'root'
 PASSWORD = 'qazwsx123'
 
-DB_URL = f'mysql+mysqlconnector://{USER_NAME}:{PASSWORD}@{HOST_NAME}:{PORT}/{DATABASE}?charset=utf8'
+DB_URL = f'mysql+pymysql://{USER_NAME}:{PASSWORD}@{HOST_NAME}:{PORT}/{DATABASE}?charset=utf8'
 
