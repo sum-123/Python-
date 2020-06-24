@@ -40,7 +40,7 @@ def data_clean(salary):
                                                                                                                   "")
         data2 = peace[0].replace("元", "").replace("千", "").replace("万", "").replace("/", "").replace("小时", "").replace(
             "天", "").replace("月", "").replace("年", "").replace("以上", "").replace("以下", "")
-        print(data2)
+        # print(data2)
         num = float(data2)
         if (unit == "元/小时"):
             salary_3 = str(round((num * 24 * 30 / 10000), 2))

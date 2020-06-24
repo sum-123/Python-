@@ -9,7 +9,7 @@ from sqlalchemy.orm import sessionmaker
 import sys,time
 from data_clean import data_clean
 from calculate import calculate_salary
-from calculate import sum_salary
+
 Base = declarative_base()
 
 
@@ -53,8 +53,10 @@ header ={
             "Accept-Language": "zh-CN,zh;q=0.8"
         };
 
+avg_salary = 0
+
 def get_info(url):
-    
+    global avg_salary
 
     html = urlopen(url).read().decode('GBK')
 
@@ -83,7 +85,7 @@ def get_info(url):
             # 数据清洗完成单位转换
 
             m =data_clean(salaries[i+1].get_text())
-            calculate_salary(m)
+            avg_salary = calculate_salary(m)
             session = creat_session()
             try:
                 
@@ -94,7 +96,7 @@ def get_info(url):
                 continue
             # orm_insert(titles[i].get('title'),company[i+1].get_text(),di[i+1].get_text(),salaries[i+1].get_text(),time[i+1].get_text())
 Count = 0
-Salary = 0
+
 def option1():
     global Count
     for i in range(1,200):
@@ -120,6 +122,14 @@ def multi_thread():
     t2.start()
     print("正在爬取......")
     while True:
-        if Count==200:
-            print(sum_salary)
+       
+        if Count==398:
+            print("爬取完成......")
+            print('')
+            print("*"*50)
+            print('')
+            print("    Python开发工程师的平均薪资为%.2f万/月"%avg_salary)
+            print('')
+            print("*"*50)
+            break
 multi_thread()
