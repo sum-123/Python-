@@ -14,7 +14,7 @@ def data_clean(salary):
         num = float(data1)
         # 这里是将薪资的单位统一为 万/月
         if (unit == "元/小时"):
-            salary_1 = str(round((data2 * 24 * 30 / 10000), 2))
+            salary_1 = str(round((data1 * 24 * 30 / 10000), 2))
             salary_2 = str(round((num * 24 * 30 / 10000), 2))
         elif (unit == "元/天"):
             salary_1 = str(round((peace[0] * 30 / 10000), 2))
@@ -47,7 +47,7 @@ def data_clean(salary):
 
         elif (unit == "元/天"):
             salary_3 = str(round(num * 30 / 10000))
-            print(salary_3)
+            # print(salary_3)
 
         elif (unit == "千/月" or unit == "千以下/月"):
             salary_3 = str(round(num / 10))
