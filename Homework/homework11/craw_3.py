@@ -85,7 +85,12 @@ def get_info(url):
             # 数据清洗完成单位转换
 
             m =data_clean(salaries[i+1].get_text())
-            avg_salary = calculate_salary(m)
+            # 筛选北京地区Python开发工程师
+            if "北京" in di[i+1].get_text():
+            
+                 avg_salary = calculate_salary(m)
+            
+            
             session = creat_session()
             try:
                 
@@ -124,11 +129,12 @@ def multi_thread():
     while True:
        
         if Count==398:
+            print('')
             print("爬取完成......")
             print('')
             print("*"*50)
             print('')
-            print("    Python开发工程师的平均薪资为%.2f万/月"%avg_salary)
+            print("   北京Python开发工程师的平均薪资为%.2f万/月"%avg_salary)
             print('')
             print("*"*50)
             break
